@@ -102,7 +102,7 @@ import { Label } from '@/components/ui/label';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import FormImage from '../assets/yard-management-service-keyvisual-1920x600px-.webp';
+import FormImage from '../assets/image1.jpeg';
 
 interface UserFormData {
   managerID?: string;
