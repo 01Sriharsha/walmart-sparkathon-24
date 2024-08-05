@@ -14,8 +14,32 @@ datasource db {
 }
 
 model Admin {
-  id       Int     @id @default(autoincrement())
-  walmartID   String  @unique
+  walmartID   String @id @unique
   password String
   isAdmin  Boolean
+}
+
+model User {
+  walmart_id String @id
+  password   String
+  username   String
+  email      String
+  phone      String
+  address    String
+  dno        Int
+  role       Role   @relation(fields: [roleId], references: [id])
+  roleId     RoleName
+}
+
+model Role {
+  id   RoleName @id
+  name String
+  users User[]
+}
+
+enum RoleName {
+  MANAGER
+  WORKER
+  DRIVER
+  SUPERVISOR
 }
