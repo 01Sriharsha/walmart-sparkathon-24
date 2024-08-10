@@ -26,7 +26,7 @@ export const signIn = async (req: Request, res: Response): Promise<void> => {
       throw new Error('Please fill the correct password');
     }
 
-    const tokenData = { userId: admin.id, isAdmin: admin.isAdmin };
+    const tokenData = { isAdmin: admin.isAdmin };
     const token = jwt.sign(tokenData, process.env.JWT_SECRET as string, { expiresIn: '1d' });
 
     res.cookie('token', token, {

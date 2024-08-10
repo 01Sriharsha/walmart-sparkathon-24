@@ -2,8 +2,9 @@ import express, { Application } from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
-import adminRouter from './src/routes/adminRouter'; // Import without '.ts'
-import { connectDB } from './src/libs/db'; // Ensure this path is correct
+import adminRouter from './src/routes/adminRouter';
+import { connectDB } from './src/libs/db';
+import userRouter from './src/routes/userRouter';
 
 dotenv.config();
 
@@ -20,7 +21,13 @@ app.use(cors({
     credentials: true // If your backend requires credentials
 }));
 
+// for admin
 app.use('/admin', adminRouter);
+
+// for user
+app.use('/user', userRouter);
+
+
 
 app.listen(port, async () => {
     try {
