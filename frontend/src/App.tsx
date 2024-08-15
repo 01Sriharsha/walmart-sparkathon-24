@@ -9,7 +9,8 @@ import SupervisorDashboard from "./pages/supervisor/Dashboard";
 import Calendar from "./pages/Calendar";
 import Settings from "./pages/Settings";
 import ProfilePage from "./pages/Profile";
-
+import AddUser from "./pages/AddUser";
+import AddSlot from "./pages/addSlot";
 const App = () => {
   return (
     <BrowserRouter>
