@@ -9,29 +9,35 @@ import SupervisorDashboard from "./pages/supervisor/Dashboard";
 import Calendar from "./pages/Calendar";
 import Settings from "./pages/Settings";
 import ProfilePage from "./pages/Profile";
-import AddUser from "./pages/AddUser";
-import AddSlot from "./pages/addSlot";
+import { ToastProvider } from "@radix-ui/react-toast";
+import Notification from "./pages/Notification";
 const App = () => {
   return (
-    <BrowserRouter>
-    <AuthProvider>
-        <Routes>
-          {/* <Route path="/login" element={<Login />} /> */}
-          {/* <Route element={<ProtectedRoute />}>
+    <ToastProvider>
+      <BrowserRouter>
+        <AuthProvider>
+          <Routes>
+            {/* <Route path="/login" element={<Login />} /> */}
+            {/* <Route element={<ProtectedRoute />}>
             <Route path="/" element={<Home />} />
           </Route> */}
-          <Route>
-            <Route path="/" element={<Home />} />
-            <Route path="/adminDashboard" element={<AdminDashboard/>} />
-            <Route path="/managerDashboard" element={<ManagerDashboard/>} />
-            <Route path="/supervisorDashboard" element={<SupervisorDashboard/>} />
-            <Route path="/calendar" element={<Calendar/>}/>
-            <Route path="/settings" element={<Settings/>}/>
-            <Route path="/profile" element={<ProfilePage/>}/>
-          </Route>
-        </Routes>
-    </AuthProvider>
-    </BrowserRouter>
+            <Route>
+              <Route path="/" element={<Home />} />
+              <Route path="/adminDashboard" element={<AdminDashboard />} />
+              <Route path="/managerDashboard" element={<ManagerDashboard />} />
+              <Route
+                path="/supervisorDashboard"
+                element={<SupervisorDashboard />}
+              />
+              <Route path="/calendar" element={<Calendar />} />
+              <Route path="/settings" element={<Settings />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/notification" element={<Notification />} />
+            </Route>
+          </Routes>
+        </AuthProvider>
+      </BrowserRouter>
+    </ToastProvider>
   );
 };
 
