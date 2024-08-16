@@ -15,7 +15,7 @@ const AdminDashboard = () => {
       <div className="flex-1 p-4 ml-64 overflow-auto">
         {" "}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
-          <CardDataStats title="Total Yards" total="25" rate="+5%" levelUp>
+          <CardDataStats title="Total Fulfillment Centers" total="25" rate="+5%" levelUp>
             <svg
               className="fill-meta-3"
               width="20"

@@ -1,10 +1,9 @@
 import CardDataStats from "@/components/cards/CardDataStats";
 import Sidebar from "@/components/Sidebar/Sidebar";
-import WorkerList from "@/components/Lists/WorkerList";
 import CardArrivedShipments from "@/components/cards/CardShipment";
 import CheckInList from "@/components/Lists/CheckInList";
 
-const SupervisorDashboard = () => {
+const WorkerDashboard = () => {
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
@@ -46,11 +45,6 @@ const SupervisorDashboard = () => {
           </CardDataStats>
         </div>
         <div className="flex flex-wrap mt-4">
-          <div className="w-full mb-12 xl:mb-0 px-4">
-            <WorkerList />
-          </div>
-        </div>
-        <div className="flex flex-wrap mt-4">
           <div className="w-full px-4">
             <CheckInList />
           </div>
@@ -65,4 +59,4 @@ const SupervisorDashboard = () => {
   );
 };
 
-export default SupervisorDashboard;
+export default WorkerDashboard;
