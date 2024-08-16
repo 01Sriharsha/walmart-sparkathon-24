@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
     <nav className="bg-blue-900 text-white p-5 flex justify-between items-center">
       {/* Left: Logo and Website Name */}
       <div className="flex items-center">
-        <img src="/path/to/logo.png" alt="Logo" className="h-8 w-8 mr-2" />
+        <img src="./src/assets/logo.png" alt="Logo" className="h-8 w-8 mr-2" />
         <span className="text-xl font-semibold">Website Name</span>
       </div>
 
