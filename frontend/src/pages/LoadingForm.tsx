@@ -96,12 +96,13 @@ const LoadingForm: React.FC = () => {
   }, [warehouseLocation, setValue]);
 
   const onSubmit = async (data: LoadingFormData) => {
-    try {
-      toast.success("Form submitted successfully!");
-      navigate('/');
-    } catch (error) {
-      toast.error("Form submission failed. Please try again.");
-    }
+    toast.success("Form submitted successfully!");
+    // try {
+    //   toast.success("Form submitted successfully!");
+    //   navigate('/');
+    // } catch (error) {
+    //   toast.error("Form submission failed. Please try again.");
+    // }
   };
 
   return (
