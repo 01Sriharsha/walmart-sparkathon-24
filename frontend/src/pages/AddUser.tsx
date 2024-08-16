@@ -94,12 +94,12 @@
 // export default AddUser;
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useAuth } from '../context/AuthContext';
+// import { useAuth } from '../context/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import FormImage from '../assets/image1.jpeg';
@@ -117,7 +117,7 @@ interface UserFormData {
 
 const AddUser: React.FC = () => {
   const [userType, setUserType] = useState<'manager' | 'supervisor'>('manager');
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<UserFormData>({
+  const { register, handleSubmit, formState: { errors } } = useForm<UserFormData>({
     defaultValues: {
       managerID: '',
       supervisorID: '',
@@ -129,24 +129,25 @@ const AddUser: React.FC = () => {
       timeOfArrival: '',
     }
   });
-  const { addUser } = useAuth();
-  const navigate = useNavigate();
+  // const { addUser } = useAuth();
+  // const navigate = useNavigate();
 
-  const onSubmit = async (data: UserFormData) => {
-    try {
-      await addUser(data); // Ensure addUser accepts the updated UserFormData
-      toast.success("User details updated successfully!");
-      reset();
-      setTimeout(() => {
-        navigate('/');
-      }, 2000);
-    } catch (error: unknown) {
-      if (error instanceof Error) {
-        toast.error(`Add user details failed: ${error.message}`);
-      } else {
-        toast.error('Add user details failed: An unexpected error occurred');
-      }
-    }
+  const onSubmit = async () => {
+    toast.success("User details updated successfully!");
+    // try {
+    //   await addUser(data); // Ensure addUser accepts the updated UserFormData
+    //   toast.success("User details updated successfully!");
+    //   reset();
+    //   setTimeout(() => {
+    //     navigate('/');
+    //   }, 2000);
+    // } catch (error: unknown) {
+    //   if (error instanceof Error) {
+    //     toast.error(`Add user details failed: ${error.message}`);
+    //   } else {
+    //     toast.error('Add user details failed: An unexpected error occurred');
+    //   }
+    // }
   };
 
   return (

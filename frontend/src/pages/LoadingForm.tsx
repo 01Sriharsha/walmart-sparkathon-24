@@ -7,7 +7,7 @@ import { Label } from '@/components/ui/label';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import FormImage from '../assets/loadingimage.jpg';
+import FormImage from '../assets/image1.jpeg';
 
 interface Driver {
   id: string;
@@ -96,12 +96,13 @@ const LoadingForm: React.FC = () => {
   }, [warehouseLocation, setValue]);
 
   const onSubmit = async (data: LoadingFormData) => {
-    try {
-      toast.success("Form submitted successfully!");
-      navigate('/');
-    } catch (error) {
-      toast.error("Form submission failed. Please try again.");
-    }
+    toast.success("Form submitted successfully!");
+    // try {
+    //   toast.success("Form submitted successfully!");
+    //   navigate('/');
+    // } catch (error) {
+    //   toast.error("Form submission failed. Please try again.");
+    // }
   };
 
   return (

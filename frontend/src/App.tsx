@@ -20,6 +20,7 @@ import CheckInPage from "./pages/checkin";
 import EagleView from "./pages/eagle-view";
 import { TrailerProvider } from "./providers/eagle-view-context";
 import ReportPage from "./pages/report";
+import LoadingForm from "./pages/LoadingForm";
 
 const App = () => {
   return (
@@ -49,6 +50,8 @@ const App = () => {
               <Route path="/add-user" element={<AddUser />} />
               <Route path="/admin/reports" element={<Reports />} />
               <Route path="/notification" element={<Notification />} />
+              <Route path="/loadShipments" element={<LoadingForm />} />
+
 
               <Route path="/ship" element={<ShipmentForm />} />
               <Route path="/check-in" element={<CheckInPage />} />

@@ -7,6 +7,7 @@ import {
   Settings,
   CalendarRange,
   LogOut,
+  Truck
 } from "lucide-react";
 import { useAuth } from "../../context/AuthContext";
 
@@ -28,7 +29,7 @@ const Sidebar: React.FC = () => {
               <li className="flex items-center p-2 hover:bg-blue-700 rounded-md">
                 <Eye className="mr-3" />
                 <NavLink
-                  to="/"
+                  to="/eagle-view"
                   className="block px-4 py-2 text-gray-300 hover:text-white"
                 >
                   Eagle View
@@ -86,6 +87,7 @@ const Sidebar: React.FC = () => {
             </>
           )}
           {role === "supervisor" && (
+            <ul>
             <li className="flex items-center p-2 hover:bg-blue-700 rounded-md">
               <UserPen className="mr-3" />
               <NavLink
@@ -95,6 +97,16 @@ const Sidebar: React.FC = () => {
                 Add Worker
               </NavLink>
             </li>
+            <li className="flex items-center p-2 hover:bg-blue-700 rounded-md">
+            <Truck className="mr-3" />
+              <NavLink
+                to="/loadShipments"
+                className="block px-4 py-2 text-gray-300 hover:text-white"
+              >
+                Load Shipments
+              </NavLink>
+            </li>
+            </ul>
           )}
                     <li className="flex items-center p-2 hover:bg-blue-700 rounded-md">
             <CircleUser className="mr-3" />
