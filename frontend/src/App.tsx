@@ -14,6 +14,7 @@ import { Route, Routes } from "react-router-dom";
 import WorkerDashboard from "./pages/worker/Dashboard";
 import AddUser from "./pages/AddUser";
 import Reports from "./pages/admin/Reports";
+import Notification from "./pages/Notification";
 
 
 const App = () => {
@@ -39,6 +40,7 @@ const App = () => {
             <Route path="/manager/add-slot" element={<AddSlot/>}/>
             <Route path="/add-user" element={<AddUser/>}/>
             <Route path="/admin/reports" element={<Reports/>}/>
+            <Route path="/notification" element={<Notification />} />
           </Route>
         </Routes>
     </AuthProvider>
