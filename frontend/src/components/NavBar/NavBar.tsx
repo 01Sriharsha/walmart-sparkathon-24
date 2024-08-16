@@ -1,9 +1,17 @@
-import React from 'react';
-import { Bell, User } from 'lucide-react';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger, DropdownMenuRadioGroup, DropdownMenuRadioItem } from '@/components/ui/dropdown-menu';
-import { Button } from '../ui/button';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
+import React from "react";
+import { Bell, User } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+} from "@/components/ui/dropdown-menu";
+import { Button } from "../ui/button";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 const Navbar: React.FC = () => {
   const [position, setPosition] = React.useState("bottom");
@@ -42,10 +50,13 @@ const Navbar: React.FC = () => {
 
       {/* Right: Notification and Profile Dropdown */}
       <div className="flex items-center space-x-4">
-        <button className="relative p-2 text-white hover:text-gray-300">
+        <Link
+          to={"/notification"}
+          className="relative p-2 text-white hover:text-gray-300"
+        >
           <Bell className="w-6 h-6" />
           <span className="absolute top-0 right-0 block h-2 w-2 bg-red-600 rounded-full" />
-        </button>
+        </Link>
 
         {/* Profile Dropdown */}
         <DropdownMenu>
@@ -58,11 +69,20 @@ const Navbar: React.FC = () => {
           <DropdownMenuContent className="w-56">
             <DropdownMenuLabel>Choose Profile</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuRadioGroup value={position} onValueChange={handleNavigation}>
+            <DropdownMenuRadioGroup
+              value={position}
+              onValueChange={handleNavigation}
+            >
               <DropdownMenuRadioItem value="admin">Admin</DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value="manager">Manager</DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value="supervisor">Supervisor</DropdownMenuRadioItem>
-              <DropdownMenuRadioItem value="worker">Worker</DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="manager">
+                Manager
+              </DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="supervisor">
+                Supervisor
+              </DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="worker">
+                Worker
+              </DropdownMenuRadioItem>
             </DropdownMenuRadioGroup>
           </DropdownMenuContent>
         </DropdownMenu>

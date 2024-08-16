@@ -1,86 +1,55 @@
+import React from "react";
 
-import { Button } from "@/components/ui/button";
-import { useToast } from "@/components/ui/use-toast";
+interface Notification {
+  id: string;
+  title: string;
+  message: string;
+  timestamp: string;
+}
 
-const Notification = () => {
-  const { toast } = useToast();
+const notifications: Notification[] = [
+  {
+    id: "1",
+    title: "New Trailer Assigned",
+    message: "A new trailer has been assigned to your section.",
+    timestamp: "2024-08-16 10:00 AM",
+  },
+  {
+    id: "2",
+    title: "Shipment Checked In",
+    message: "Shipment ID 12345 has been successfully checked in.",
+    timestamp: "2024-08-16 11:15 AM",
+  },
+  {
+    id: "3",
+    title: "Slot Availability Update",
+    message: "A new slot has become available in Section 2.",
+    timestamp: "2024-08-16 01:30 PM",
+  },
+  // Add more notifications as needed
+];
 
-  const handleButtonClick = (type: string) => {
-    switch (type) {
-      case "arrived":
-        toast({
-          title: "Truck arrived",
-          description: (
-            <div>
-              Unload the truck
-              <div className="flex gap-2 mt-2">
-                <button className="bg-green-500 text-white px-3 py-1 rounded">
-                  Accept
-                </button>
-                <button className="bg-red-500 text-white px-3 py-1 rounded">
-                  Decline
-                </button>
-              </div>
-            </div>
-          ),
-          duration: 5000,
-        });
-        break;
-      case "waiting":
-        toast({
-          title: "Truck waiting",
-          description: (
-            <div>
-              Navigate to unload point or wait in the parking lot
-              <div className="flex gap-2 mt-2">
-                <button className="bg-blue-500 text-white px-3 py-1 rounded">
-                  Navigate
-                </button>
-                <button className="bg-yellow-500 text-white px-3 py-1 rounded">
-                  Wait
-                </button>
-              </div>
-            </div>
-          ),
-          duration: 5000,
-        });
-        break;
-      case "left":
-        toast({
-          title: "Truck left",
-          description: "The truck has left the premises.",
-          duration: 5000,
-        });
-        break;
-      default:
-        return;
-    }
-  };
-
+const NotificationCard: React.FC<{ notification: Notification }> = ({
+  notification,
+}) => {
   return (
-    <div className="p-8">
-      <div className="flex gap-4">
-        <Button
-          className="bg-red-500 text-white px-4 py-2 rounded"
-          onClick={() => handleButtonClick("arrived")}
-        >
-          Truck Arrived
-        </Button>
-        <Button
-          className="bg-yellow-500 text-white px-4 py-2 rounded"
-          onClick={() => handleButtonClick("waiting")}
-        >
-          Truck Waiting
-        </Button>
-        <Button
-          className="bg-green-500 text-white px-4 py-2 rounded"
-          onClick={() => handleButtonClick("left")}
-        >
-          Truck Left
-        </Button>
-      </div>
+    <div className="bg-white p-4 rounded-lg shadow-md mb-4">
+      <h3 className="text-lg font-semibold mb-2">{notification.title}</h3>
+      <p className="text-gray-700">{notification.message}</p>
+      <p className="text-gray-500 text-sm mt-2">{notification.timestamp}</p>
     </div>
   );
 };
 
-export default Notification;
+const NotificationPage: React.FC = () => {
+  return (
+    <div className="container mx-auto p-4">
+      <h1 className="text-2xl font-bold mb-4">Notifications</h1>
+      {notifications.map((notification) => (
+        <NotificationCard key={notification.id} notification={notification} />
+      ))}
+    </div>
+  );
+};
+
+export default NotificationPage;
