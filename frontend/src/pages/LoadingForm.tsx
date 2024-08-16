@@ -7,7 +7,7 @@ import { Label } from '@/components/ui/label';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import FormImage from '../assets/loadingimage.jpg';
+import FormImage from '../assets/image1.jpeg';
 
 interface Driver {
   id: string;
